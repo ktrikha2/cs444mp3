@@ -1,0 +1,25 @@
+runs_flower/*/*.out
+runs_flower/*/*.err
+runs_flower/*/log.txt
+runs_flower/*/*.pth
+runs_flower/*/*.pt
+runs_flower/*/events.out.tfevents*
+
+**/events.out.tfevents*
+
+!runs_flower/*/test_flower.txt   # allow this through
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+venv/
+.env/
+
+data/
+*.pkl
+*.zip
+*.tar
+*.tar.gz
+*.h5
