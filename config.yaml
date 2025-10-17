@@ -1,0 +1,18 @@
+# Do hyperparameter setting here
+vit_linear:
+    lr: 0.001
+    wd: 0.01
+    epochs: 100
+    optimizer: 'sgd'
+    scheduler: 'multi_step'
+    momentum: 0.99
+    net_class: ViTLinear
+    batch_size: 32
+
+pixmo_demo:
+    lr: 0.0003
+    epochs: 20
+    optimizer: 'adam'
+    net_class: PixMoModel
+    batch_size: 16
+    num_classes: 20
