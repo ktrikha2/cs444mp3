@@ -1,4 +1,4 @@
-ls#!/bin/bash
+#!/bin/bash
 
 ### Do not change the following 8 lines.
 #SBATCH --job-name=flower_demo
