@@ -143,11 +143,22 @@ class Encoder(nn.Module):
         self.layers = nn.Sequential(layers)
         self.ln = norm_layer(hidden_dim)
 
-    def forward(self, input: torch.Tensor):
+    def forward(self, input: torch.Tensor, prompts : Optional[nn.ParamterList] = None):
         torch._assert(input.dim() == 3, f"Expected (batch_size, seq_length, hidden_dim) got {input.shape}")
-        input = input + self.pos_embedding
-        return self.ln(self.layers(self.dropout(input)))
-
+        #input = input + self.pos_embedding
+        #return self.ln(self.layers(self.dropout(input)))
+        x = input + self.pos_embedding
+        x = self.dropout(x)
+        n = x.size(0)
+        if prompts is None:
+            x = self.layers(x)
+        else:
+            for i, layer in enumerate(self.layers):
+                prompt = prompts[i].expand(n, -1, -1)
+                x = torch.cat([prompt, x], dim=1)
+                x = layer(x)
+                x = x[:, prompt.shape[1]:, :]
+        return self.ln(x)
 
 class VisionTransformer(nn.Module):
     """Vision Transformer as per https://arxiv.org/abs/2010.11929."""

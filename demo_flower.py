@@ -3,7 +3,7 @@ import torch
 from absl import app, flags
 from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
-from finetune import ViTLinear, inference, Trainer
+from finetune import ViTLinear, inference, Trainer, ViTDeep
 import yaml
 
 from datasets import get_flower102
@@ -43,6 +43,7 @@ def get_config(exp_name):
     # add/modify hyperparameters of your class in config.yaml
     encoder_registry = {
         'ViTLinear': ViTLinear,
+        'ViTDeep' : ViTDeep,
     }
     with open("config.yaml", "r") as f:
         config = yaml.safe_load(f)[exp_name]

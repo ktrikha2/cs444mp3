@@ -31,6 +31,43 @@ class ViTLinear(nn.Module):
         y = self.linear(out)
         return y
     
+class ViTDeep(nn.Module):
+    def __init__(self, n_classes, encoder_name, prompt_len=10):
+        super(ViTDeep, self).__init__()
+        
+        self.vit_b = get_encoder(encoder_name)
+        
+        self.vit_b.heads[0] = nn.Identity()
+        for parameter in self.vit_b.parameters():
+            parameter.requires_grad = False #freeze backbone
+        hidden_dim = 768
+        v = (6  / (hidden_dim + prompt_len))**0.5
+        num_train_layers = len(self.vit_b.encoder.layers)
+        self.prompts = nn.ParameterList([
+            nn.Parameter(torch.zeros(1, prompt_len, hidden_dim).uniform_(-v, v))
+            for _ in range(num_train_layers)
+        ])
+        self.linear = nn.Linear(768, n_classes)
+    
+    def to(self, device):
+        super(ViTDeep, self).to(device)
+        self.vit_b = self.vit_b.to(device)
+
+    def forward(self, x):
+        x = self.vit_b._process_input(x)
+        n = x.shape[0]
+        class_token = self.vit_b.class_token.expand(n, -1, -1)
+        x = torch.cat((class_token, x), dim=1)
+
+        #for x, layer in enumerate(self.vit_b.encoder.layers):
+            #prompt = self.prompts[x].expand(n, -1, -1)
+            #x = torch.cat([prompt, x], dim=1)
+            #x = layer(x)
+            #x = x[:, prompt.shape[1]:, :]
+        x = self.vit_b.encoder(x, prompts=self.prompts)
+        x = x[:, 0] #get class token
+        return self.linear(x)
+    
 
 def test(test_loader, model, device):
     model.eval()
