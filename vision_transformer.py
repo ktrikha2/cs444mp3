@@ -143,7 +143,7 @@ class Encoder(nn.Module):
         self.layers = nn.Sequential(layers)
         self.ln = norm_layer(hidden_dim)
 
-    def forward(self, input: torch.Tensor, prompts : Optional[nn.ParamterList] = None):
+    def forward(self, input: torch.Tensor, prompts : Optional[nn.ParameterList] = None):
         torch._assert(input.dim() == 3, f"Expected (batch_size, seq_length, hidden_dim) got {input.shape}")
         #input = input + self.pos_embedding
         #return self.ln(self.layers(self.dropout(input)))
