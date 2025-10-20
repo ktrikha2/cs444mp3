@@ -22,8 +22,8 @@
 
 # Default values for DIR_NAME and EXP_NAME. For each different experiment you
 # run, you should use a different EXP_NAME. Change it in the command line flag.
-DIR_NAME=${DIR_NAME:?"DIR_NAME not set"}
-EXP_NAME=${EXP_NAME:?"EXP_NAME not set"}
+DIR_NAME=${DIR_NAME:="runs_flower/vit_deep"}
+EXP_NAME=${EXP_NAME:="vit_linear"}
 
 mkdir -p ${DIR_NAME}
 LOG_FILE="${DIR_NAME}/log.txt"
