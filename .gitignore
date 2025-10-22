@@ -1,13 +1,25 @@
+# === Run directories ===
 runs_flower/*/*.out
 runs_flower/*/*.err
-runs_flower/*/log.txt
 runs_flower/*/*.pth
 runs_flower/*/*.pt
 runs_flower/*/events.out.tfevents*
+runs_flower/*/checkpoints/
+runs_flower/*/*.log
+!runs_flower/*/test_flower.txt
+!runs_flower/*/log.txt
+
+runs_pixmo/*/*.out
+runs_pixmo/*/*.err
+runs_pixmo/*/*.pth
+runs_pixmo/*/*.pt
+runs_pixmo/*/events.out.tfevents*
+runs_pixmo/*/checkpoints/
+runs_pixmo/*/*.log
+!runs_pixmo/*/test_pixmo.txt
+!runs_pixmo/*/log.txt
 
 **/events.out.tfevents*
-
-!runs_flower/*/test_flower.txt   # allow this through
 
 __pycache__/
 *.pyc
