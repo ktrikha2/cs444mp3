@@ -98,3 +98,16 @@ pixmo_5:
     num_layers: 2
     patch_tokens: 2
     in_features : 512
+pixmo_5.1:
+    lr: 0.0001
+    epochs: 20          
+    optimizer: 'adam'
+    net_class: PixMoModel
+    batch_size: 16
+    num_classes: 20
+    dropout: 0.1
+    weight_decay: 0.05
+    num_heads: 2
+    num_layers: 2
+    patch_tokens: 2
+    in_features : 512
