@@ -115,7 +115,7 @@ pixmo_5.1:
 
 pixmo_6:
     lr: 0.00005
-    epochs: 25          
+    epochs: 30          
     optimizer: 'adam'
     net_class: PixMoModel
     batch_size: 16
