@@ -59,14 +59,14 @@ pixmo_2:
     patch_tokens: 4
 
 pixmo_3:
-    lr: 0.0003
-    epochs: 20          
-    optimizer: 'adam'
+    lr: 0.00015
+    epochs: 30          
+    optimizer: 'adamw'
     net_class: PixMoModel
     batch_size: 16
     num_classes: 20
-    dropout: 0.1
-    weight_decay: 0.01
+    dropout: 0.2
+    weight_decay: 0.05
     num_heads: 4
     num_layers: 4
     patch_tokens: 4
