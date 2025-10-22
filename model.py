@@ -60,7 +60,10 @@ class ConvEncoder(nn.Module):
         # Fine-tuning strategy: freeze most layers, only train the last layer
         for param in self.conv_encoder.parameters():
             param.requires_grad = False
-        # Unfreeze only the last layer (layer4) for fine-tuning
+        # Unfreeze only the last layer (layer4) for fine-tuning 
+        #unfreezing more to fine tune 
+        for param in self.conv_encoder.layer3.parameters():
+            param.requires_grad = True
         for param in self.conv_encoder.layer4.parameters():
             param.requires_grad = True
 
