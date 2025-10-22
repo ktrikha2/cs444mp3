@@ -115,5 +115,19 @@ class PixmoPointsDataset(Dataset):
                 # flip the image and points
                 image = tv.transforms.functional.hflip(image)
                 point[..., 0] = self.width - point[..., 0]
+
+
+        #cropping around point 
+        cropx, cropy = int(point[0]), int(point[1])
+        crop = 96
+        half_crop = crop //2
+        x1 = max(0, cropx - half_crop)
+        y1 = max(0, cropy - half_crop)
+        x2 = min(self.width, cropx + half_crop)
+        y2 = min(self.height, cropy + half_crop) #dimensions of cropped image
+
+        cropped_image = image[:, y1:y2, x1:x2]
+        cropped_image = tv.transforms.functional.resize(cropped_image, (self.height, self.width)) #resize back to original size
+
         
-        return image, label, point
+        return image, cropped_image, label, point

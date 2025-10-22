@@ -165,7 +165,7 @@ class PixMoModel(nn.Module):
         # Classification head for final predictions
         self.classifier = Classifier(feature_dim, num_classes, dropout=dropout)
 
-    def forward(self, x, points=None):
+    def forward(self, x, crop_image, points=None):
         # TODO(student)
         # 1) Image → tokens → transformer
         #    - Convert images to patch tokens using the tokenizer
@@ -174,15 +174,18 @@ class PixMoModel(nn.Module):
         
         # Step 1: Convert images to patch tokens
         img_tokens = self.tokenizer(x)      # (B, L, C)
+        crop_tokens = self.tokenizer(crop_image) if crop_image is not None else None
+        #combine the two tokens
+        tokens = torch.cat((img_tokens, crop_tokens), dim=1) 
         #add pos embedding
-        img_tokens = img_tokens + self.pos_embedding
+        #img_tokens = img_tokens + self.pos_embedding will add back
         
         # Step 2: Process through transformer encoder
         # TODO: Apply TransformerEncoder to img_tokens
-        img_tokens = self.encoder(img_tokens) #first add
-
+        img_tokens = self.encoder(tokens) #first add
+        pooled_tokens = img_tokens.mean(dim=1)
         # Step 3: Classification (flattens across sequence length L)
-        logits = self.classifier(img_tokens)
+        logits = self.classifier(pooled_tokens)
         return logits
 
 
@@ -263,11 +266,12 @@ class Trainer:
         total_loss, correct, n = 0., 0., 0
         
         for data in self.train_loader:
-            image, label, point = data
+            image, cropped_image, label, point = data
             x, y = image.to(self.device), label.to(self.device)
+            cropped_image = cropped_image.to(self.device)
             
             # Forward pass
-            y_hat = self.model(x, point)
+            y_hat = self.model(x, cropped_image, point)
             loss = nn.CrossEntropyLoss()(y_hat, y)
             
             # Backward pass
@@ -294,11 +298,11 @@ class Trainer:
 
         with torch.no_grad():
             for data in self.val_loader:
-                image, label, point = data
+                image, cropped_image, label, point = data
                 x, y = image.to(self.device), label.to(self.device)
-                
+                cropped_image = cropped_image.to(self.device)
                 # Forward pass
-                y_hat = self.model(x, point)
+                y_hat = self.model(x,cropped_image, point)
                 loss = nn.CrossEntropyLoss()(y_hat, y)
                 
                 # Update metrics
@@ -368,7 +372,8 @@ def inference(test_loader, model, device, result_path):
         for data in tqdm(test_loader, file=sys.stdout, ncols=80, mininterval=10, dynamic_ncols=False):
             image, _, point = data
             x = image.to(device)
-            y_hat = model(x, point)
+            cropped_image = cropped_image.to(device)  
+            y_hat = model(x,cropped_image, point)
             pred = y_hat.argmax(dim=1)
             predictions.extend(pred.cpu().numpy())
     
