@@ -164,7 +164,7 @@ class PixMoModel(nn.Module):
         self.encoder = TransformerEncoder(encoder_layers, num_layers=num_layers)
 
         # Classification head for final predictions
-        self.classifier = Classifier(feature_dim, num_classes, dropout=dropout)
+        self.classifier = Classifier(self.tokenizer.feature_dim, num_classes, dropout=dropout)
 
     def forward(self, x, crop_image, points=None):
         # TODO(student)
