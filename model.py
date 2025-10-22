@@ -118,7 +118,9 @@ class Classifier(nn.Module):
         # 2. Pass through the MLP to get classification logits
         
         #x = torch.flatten(x, 1)
+        print("xshape", x.shape)
         x = x.mean(dim=1)  #  average pooling across tokens
+        print("xshape after mean", x.shape)
         x = self.mlp(x)
         
         return x
