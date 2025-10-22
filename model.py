@@ -25,7 +25,7 @@ from torchvision.models import ResNet34_Weights
 
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
 from tqdm import tqdm
-
+import sys
 
 class ConvEncoder(nn.Module):
     """
