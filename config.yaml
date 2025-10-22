@@ -70,3 +70,16 @@ pixmo_3:
     num_heads: 4
     num_layers: 4
     patch_tokens: 4
+
+pixmo_4:
+    lr: 0.0001
+    epochs: 20          
+    optimizer: 'adam'
+    net_class: PixMoModel
+    batch_size: 16
+    num_classes: 20
+    dropout: 0.1
+    weight_decay: 0.05
+    num_heads: 4
+    num_layers: 4
+    patch_tokens: 4

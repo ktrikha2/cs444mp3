@@ -117,7 +117,8 @@ class Classifier(nn.Module):
         # 1. Flatten the input across the sequence dimension (num_tokens)
         # 2. Pass through the MLP to get classification logits
         
-        x = torch.flatten(x, 1)
+        #x = torch.flatten(x, 1)
+        x = x.mean(dim=1)  #  average pooling across tokens
         x = self.mlp(x)
         return x
 
