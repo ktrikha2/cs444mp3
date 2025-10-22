@@ -80,6 +80,7 @@ pixmo_4:
     num_classes: 20
     dropout: 0.1
     weight_decay: 0.05
-    num_heads: 4
-    num_layers: 4
-    patch_tokens: 4
+    num_heads: 2
+    num_layers: 2
+    patch_tokens: 2
+    in_features : 512
