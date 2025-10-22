@@ -148,7 +148,12 @@ class PixMoModel(nn.Module):
         super().__init__()
         # Image tokenization using convolutional encoder
         self.tokenizer = ConvEncoder(patch_tokens=patch_tokens)
+        self.num_patches = patch_tokens * patch_tokens
+        self.feature_dim = feature_dim
 
+        #learned pos embeddings
+        self.pos_embedding = nn.Parameter(torch.zeros(1, self.num_patches, self.feature_dim))
+        nn.init.trunc_normal_(self.pos_embedding, std=0.02)
         # use PyTorch's built-in TransformerEncoderLayer
         encoder_layers = TransformerEncoderLayer(d_model=feature_dim, nhead=num_heads, dropout=dropout, batch_first=True)
         self.encoder = TransformerEncoder(encoder_layers, num_layers=num_layers)
@@ -165,6 +170,8 @@ class PixMoModel(nn.Module):
         
         # Step 1: Convert images to patch tokens
         img_tokens = self.tokenizer(x)      # (B, L, C)
+        #add pos embedding
+        img_tokens = img_tokens + self.pos_embedding
         
         # Step 2: Process through transformer encoder
         # TODO: Apply TransformerEncoder to img_tokens
