@@ -61,7 +61,7 @@ pixmo_2:
 pixmo_3:
     lr: 0.00015
     epochs: 30          
-    optimizer: 'adamw'
+    optimizer: 'adam'
     net_class: PixMoModel
     batch_size: 16
     num_classes: 20
