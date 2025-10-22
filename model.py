@@ -120,6 +120,7 @@ class Classifier(nn.Module):
         #x = torch.flatten(x, 1)
         x = x.mean(dim=1)  #  average pooling across tokens
         x = self.mlp(x)
+        
         return x
 
 
@@ -183,9 +184,12 @@ class PixMoModel(nn.Module):
         # Step 2: Process through transformer encoder
         # TODO: Apply TransformerEncoder to img_tokens
         img_tokens = self.encoder(tokens) #first add
+        print("Encoder output shape:", img_tokens.shape)
+
         pooled_tokens = img_tokens.mean(dim=1)
         # Step 3: Classification (flattens across sequence length L)
         logits = self.classifier(pooled_tokens)
+        
         return logits
 
 
@@ -370,7 +374,7 @@ def inference(test_loader, model, device, result_path):
     
     with torch.no_grad():
         for data in tqdm(test_loader, file=sys.stdout, ncols=80, mininterval=10, dynamic_ncols=False):
-            image, _, point = data
+            image,cropped_image, _, point = data
             x = image.to(device)
             cropped_image = cropped_image.to(device)  
             y_hat = model(x,cropped_image, point)
