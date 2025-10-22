@@ -187,6 +187,7 @@ class PixMoModel(nn.Module):
         print("Encoder output shape:", img_tokens.shape)
 
         pooled_tokens = img_tokens.mean(dim=1)
+        print("Pooled tokens shape:", pooled_tokens.shape)
         # Step 3: Classification (flattens across sequence length L)
         logits = self.classifier(pooled_tokens)
         
