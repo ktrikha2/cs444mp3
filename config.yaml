@@ -42,3 +42,5 @@ pixmo_1:
     net_class: PixMoModel
     batch_size: 16
     num_classes: 20
+    dropout: 0.2
+    weight_decay: 0.05
