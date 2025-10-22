@@ -154,12 +154,12 @@ class Encoder(nn.Module):
             x = self.layers(x)
         else:
             for i, layer in enumerate(self.layers):
-                prompt = prompts[i].expand(n, -1, -1)
-                x = torch.cat([prompt, x], dim=1)
-                x = layer(x)
-                x = x[:, prompt.shape[1]:, :]
-        return self.ln(x)
-
+                prompt = prompts[i].expand(n, -1, -1) #current prompt for batch
+                x = torch.cat([prompt, x], dim=1) # puts prompt before the input tokens
+                x = layer(x) 
+                x = x[:, prompt.shape[1]:, :] #remove prompt tokens
+        return self.ln(x) #layernorm
+ 
 class VisionTransformer(nn.Module):
     """Vision Transformer as per https://arxiv.org/abs/2010.11929."""
 

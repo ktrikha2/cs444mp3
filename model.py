@@ -118,9 +118,9 @@ class Classifier(nn.Module):
         # 2. Pass through the MLP to get classification logits
         
         #x = torch.flatten(x, 1)
-        print("xshape", x.shape)
+        #print("xshape", x.shape)
         #x = x.mean(dim=1)  #  average pooling across tokens wrong shape double pooled
-        print("xshape after mean", x.shape)
+        #print("xshape after mean", x.shape)
         x = self.mlp(x)
         
         return x
@@ -155,7 +155,7 @@ class PixMoModel(nn.Module):
         super().__init__()
         # Image tokenization using convolutional encoder
         self.tokenizer = ConvEncoder(patch_tokens=patch_tokens)
-        self.num_patches = patch_tokens * patch_tokens
+        self.num_patches = patch_tokens * patch_tokens * 2 #mult by 2 to account for crop, so img + crop tokens 
         self.feature_dim = feature_dim
 
         #learned pos embeddings
@@ -177,19 +177,19 @@ class PixMoModel(nn.Module):
         
         # Step 1: Convert images to patch tokens
         img_tokens = self.tokenizer(x)      # (B, L, C)
-        crop_tokens = self.tokenizer(crop_image) if crop_image is not None else None
+        crop_tokens = self.tokenizer(crop_image) 
         #combine the two tokens
         tokens = torch.cat((img_tokens, crop_tokens), dim=1) 
         #add pos embedding
-        #img_tokens = img_tokens + self.pos_embedding will add back
+        tokens = tokens + self.pos_embedding[:, :tokens.size(1), :].to(tokens.device) #will add back
         
         # Step 2: Process through transformer encoder
         # TODO: Apply TransformerEncoder to img_tokens
-        img_tokens = self.encoder(tokens) #first add
-        print("Encoder output shape:", img_tokens.shape)
+        tokens = self.encoder(tokens) #first add
+        #print("Encoder output shape:", img_tokens.shape)
 
         pooled_tokens = img_tokens.mean(dim=1)
-        print("Pooled tokens shape:", pooled_tokens.shape)
+        #print("Pooled tokens shape:", pooled_tokens.shape)
         # Step 3: Classification (flattens across sequence length L)
         logits = self.classifier(pooled_tokens)
         
