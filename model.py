@@ -119,7 +119,7 @@ class Classifier(nn.Module):
         
         #x = torch.flatten(x, 1)
         print("xshape", x.shape)
-        x = x.mean(dim=1)  #  average pooling across tokens
+        #x = x.mean(dim=1)  #  average pooling across tokens wrong shape double pooled
         print("xshape after mean", x.shape)
         x = self.mlp(x)
         
