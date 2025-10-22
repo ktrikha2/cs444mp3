@@ -168,6 +168,7 @@ class PixMoModel(nn.Module):
         
         # Step 2: Process through transformer encoder
         # TODO: Apply TransformerEncoder to img_tokens
+        img_tokens = self.encoder(img_tokens) #first add
 
         # Step 3: Classification (flattens across sequence length L)
         logits = self.classifier(img_tokens)

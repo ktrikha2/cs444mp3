@@ -11,7 +11,7 @@
 #SBATCH --mem=48g
 ### End Do not change block
 
-#SBATCH --mail-user=NETID@illinois.edu  # replace with your email
+#SBATCH --mail-user=ktrikha2@illinois.edu  # replace with your email
 #SBATCH --mail-type=NONE                # Type of email notifications to send
 
 #SBATCH --output=ece494mp3.2-%x-%j.out  # Default name of batch job output file if not set on command line
