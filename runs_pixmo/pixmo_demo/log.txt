@@ -1,0 +1,125 @@
+Running: pixmo_demo
+2025-10-21 20:36:19: INFO model.py:314] Training Epoch 0
+2025-10-21 20:36:28: INFO model.py:318] Validating after Epoch 0
+2025-10-21 20:36:30: INFO demo_pixmo.py:33]           val_acc [0000000]: 0.207031
+2025-10-21 20:36:30: INFO demo_pixmo.py:33]          val_loss [0000000]: 2.549372
+2025-10-21 20:36:30: INFO demo_pixmo.py:33]         train_acc [0000000]: 0.171178
+2025-10-21 20:36:30: INFO demo_pixmo.py:33]        train_loss [0000000]: 2.688616
+2025-10-21 20:36:30: INFO model.py:314] Training Epoch 1
+2025-10-21 20:36:39: INFO model.py:318] Validating after Epoch 1
+2025-10-21 20:36:40: INFO demo_pixmo.py:33]           val_acc [0000001]: 0.150391
+2025-10-21 20:36:40: INFO demo_pixmo.py:33]          val_loss [0000001]: 2.723267
+2025-10-21 20:36:40: INFO demo_pixmo.py:33]         train_acc [0000001]: 0.282245
+2025-10-21 20:36:40: INFO demo_pixmo.py:33]        train_loss [0000001]: 2.271519
+2025-10-21 20:36:40: INFO model.py:314] Training Epoch 2
+2025-10-21 20:36:48: INFO model.py:318] Validating after Epoch 2
+2025-10-21 20:36:50: INFO demo_pixmo.py:33]           val_acc [0000002]: 0.162109
+2025-10-21 20:36:50: INFO demo_pixmo.py:33]          val_loss [0000002]: 3.058493
+2025-10-21 20:36:50: INFO demo_pixmo.py:33]         train_acc [0000002]: 0.425557
+2025-10-21 20:36:50: INFO demo_pixmo.py:33]        train_loss [0000002]: 1.875887
+2025-10-21 20:36:50: INFO model.py:314] Training Epoch 3
+2025-10-21 20:36:59: INFO model.py:318] Validating after Epoch 3
+2025-10-21 20:37:01: INFO demo_pixmo.py:33]           val_acc [0000003]: 0.162109
+2025-10-21 20:37:01: INFO demo_pixmo.py:33]          val_loss [0000003]: 3.123807
+2025-10-21 20:37:01: INFO demo_pixmo.py:33]         train_acc [0000003]: 0.566083
+2025-10-21 20:37:01: INFO demo_pixmo.py:33]        train_loss [0000003]: 1.444179
+2025-10-21 20:37:01: INFO model.py:314] Training Epoch 4
+2025-10-21 20:37:09: INFO model.py:318] Validating after Epoch 4
+2025-10-21 20:37:11: INFO demo_pixmo.py:33]           val_acc [0000004]: 0.156250
+2025-10-21 20:37:11: INFO demo_pixmo.py:33]          val_loss [0000004]: 3.536202
+2025-10-21 20:37:11: INFO demo_pixmo.py:33]         train_acc [0000004]: 0.710191
+2025-10-21 20:37:11: INFO demo_pixmo.py:33]        train_loss [0000004]: 0.992630
+2025-10-21 20:37:11: INFO model.py:314] Training Epoch 5
+2025-10-21 20:37:19: INFO model.py:318] Validating after Epoch 5
+2025-10-21 20:37:21: INFO demo_pixmo.py:33]           val_acc [0000005]: 0.132812
+2025-10-21 20:37:21: INFO demo_pixmo.py:33]          val_loss [0000005]: 3.931145
+2025-10-21 20:37:21: INFO demo_pixmo.py:33]         train_acc [0000005]: 0.813694
+2025-10-21 20:37:21: INFO demo_pixmo.py:33]        train_loss [0000005]: 0.646014
+2025-10-21 20:37:21: INFO model.py:314] Training Epoch 6
+2025-10-21 20:37:30: INFO model.py:318] Validating after Epoch 6
+2025-10-21 20:37:32: INFO demo_pixmo.py:33]           val_acc [0000006]: 0.134766
+2025-10-21 20:37:32: INFO demo_pixmo.py:33]          val_loss [0000006]: 3.947265
+2025-10-21 20:37:32: INFO demo_pixmo.py:33]         train_acc [0000006]: 0.859475
+2025-10-21 20:37:32: INFO demo_pixmo.py:33]        train_loss [0000006]: 0.484692
+2025-10-21 20:37:32: INFO model.py:314] Training Epoch 7
+2025-10-21 20:37:39: INFO model.py:318] Validating after Epoch 7
+2025-10-21 20:37:41: INFO demo_pixmo.py:33]           val_acc [0000007]: 0.173828
+2025-10-21 20:37:41: INFO demo_pixmo.py:33]          val_loss [0000007]: 4.055597
+2025-10-21 20:37:41: INFO demo_pixmo.py:33]         train_acc [0000007]: 0.886545
+2025-10-21 20:37:41: INFO demo_pixmo.py:33]        train_loss [0000007]: 0.397258
+2025-10-21 20:37:41: INFO model.py:314] Training Epoch 8
+2025-10-21 20:37:49: INFO model.py:318] Validating after Epoch 8
+2025-10-21 20:37:51: INFO demo_pixmo.py:33]           val_acc [0000008]: 0.144531
+2025-10-21 20:37:51: INFO demo_pixmo.py:33]          val_loss [0000008]: 4.411605
+2025-10-21 20:37:51: INFO demo_pixmo.py:33]         train_acc [0000008]: 0.904061
+2025-10-21 20:37:51: INFO demo_pixmo.py:33]        train_loss [0000008]: 0.335204
+2025-10-21 20:37:51: INFO model.py:314] Training Epoch 9
+2025-10-21 20:38:00: INFO model.py:318] Validating after Epoch 9
+2025-10-21 20:38:02: INFO demo_pixmo.py:33]           val_acc [0000009]: 0.164062
+2025-10-21 20:38:02: INFO demo_pixmo.py:33]          val_loss [0000009]: 4.067559
+2025-10-21 20:38:02: INFO demo_pixmo.py:33]         train_acc [0000009]: 0.920382
+2025-10-21 20:38:02: INFO demo_pixmo.py:33]        train_loss [0000009]: 0.259060
+2025-10-21 20:38:02: INFO model.py:314] Training Epoch 10
+2025-10-21 20:38:10: INFO model.py:318] Validating after Epoch 10
+2025-10-21 20:38:13: INFO demo_pixmo.py:33]           val_acc [0000010]: 0.158203
+2025-10-21 20:38:13: INFO demo_pixmo.py:33]          val_loss [0000010]: 4.298502
+2025-10-21 20:38:13: INFO demo_pixmo.py:33]         train_acc [0000010]: 0.951831
+2025-10-21 20:38:13: INFO demo_pixmo.py:33]        train_loss [0000010]: 0.188479
+2025-10-21 20:38:13: INFO model.py:314] Training Epoch 11
+2025-10-21 20:38:22: INFO model.py:318] Validating after Epoch 11
+2025-10-21 20:38:26: INFO demo_pixmo.py:33]           val_acc [0000011]: 0.158203
+2025-10-21 20:38:26: INFO demo_pixmo.py:33]          val_loss [0000011]: 4.231646
+2025-10-21 20:38:26: INFO demo_pixmo.py:33]         train_acc [0000011]: 0.946258
+2025-10-21 20:38:26: INFO demo_pixmo.py:33]        train_loss [0000011]: 0.180647
+2025-10-21 20:38:26: INFO model.py:314] Training Epoch 12
+2025-10-21 20:38:34: INFO model.py:318] Validating after Epoch 12
+2025-10-21 20:38:36: INFO demo_pixmo.py:33]           val_acc [0000012]: 0.162109
+2025-10-21 20:38:36: INFO demo_pixmo.py:33]          val_loss [0000012]: 4.288299
+2025-10-21 20:38:36: INFO demo_pixmo.py:33]         train_acc [0000012]: 0.959793
+2025-10-21 20:38:36: INFO demo_pixmo.py:33]        train_loss [0000012]: 0.144662
+2025-10-21 20:38:36: INFO model.py:314] Training Epoch 13
+2025-10-21 20:38:44: INFO model.py:318] Validating after Epoch 13
+2025-10-21 20:38:46: INFO demo_pixmo.py:33]           val_acc [0000013]: 0.164062
+2025-10-21 20:38:46: INFO demo_pixmo.py:33]          val_loss [0000013]: 4.458924
+2025-10-21 20:38:46: INFO demo_pixmo.py:33]         train_acc [0000013]: 0.967755
+2025-10-21 20:38:46: INFO demo_pixmo.py:33]        train_loss [0000013]: 0.121936
+2025-10-21 20:38:46: INFO model.py:314] Training Epoch 14
+2025-10-21 20:38:54: INFO model.py:318] Validating after Epoch 14
+2025-10-21 20:38:55: INFO demo_pixmo.py:33]           val_acc [0000014]: 0.138672
+2025-10-21 20:38:55: INFO demo_pixmo.py:33]          val_loss [0000014]: 4.489842
+2025-10-21 20:38:55: INFO demo_pixmo.py:33]         train_acc [0000014]: 0.952627
+2025-10-21 20:38:55: INFO demo_pixmo.py:33]        train_loss [0000014]: 0.163488
+2025-10-21 20:38:55: INFO model.py:314] Training Epoch 15
+2025-10-21 20:39:03: INFO model.py:318] Validating after Epoch 15
+2025-10-21 20:39:05: INFO demo_pixmo.py:33]           val_acc [0000015]: 0.121094
+2025-10-21 20:39:05: INFO demo_pixmo.py:33]          val_loss [0000015]: 4.639115
+2025-10-21 20:39:05: INFO demo_pixmo.py:33]         train_acc [0000015]: 0.953424
+2025-10-21 20:39:05: INFO demo_pixmo.py:33]        train_loss [0000015]: 0.148409
+2025-10-21 20:39:05: INFO model.py:314] Training Epoch 16
+2025-10-21 20:39:13: INFO model.py:318] Validating after Epoch 16
+2025-10-21 20:39:15: INFO demo_pixmo.py:33]           val_acc [0000016]: 0.154297
+2025-10-21 20:39:15: INFO demo_pixmo.py:33]          val_loss [0000016]: 5.040564
+2025-10-21 20:39:15: INFO demo_pixmo.py:33]         train_acc [0000016]: 0.947054
+2025-10-21 20:39:15: INFO demo_pixmo.py:33]        train_loss [0000016]: 0.181287
+2025-10-21 20:39:15: INFO model.py:314] Training Epoch 17
+2025-10-21 20:39:23: INFO model.py:318] Validating after Epoch 17
+2025-10-21 20:39:26: INFO demo_pixmo.py:33]           val_acc [0000017]: 0.130859
+2025-10-21 20:39:26: INFO demo_pixmo.py:33]          val_loss [0000017]: 4.745034
+2025-10-21 20:39:26: INFO demo_pixmo.py:33]         train_acc [0000017]: 0.928742
+2025-10-21 20:39:26: INFO demo_pixmo.py:33]        train_loss [0000017]: 0.220288
+2025-10-21 20:39:26: INFO model.py:314] Training Epoch 18
+2025-10-21 20:39:35: INFO model.py:318] Validating after Epoch 18
+2025-10-21 20:39:36: INFO demo_pixmo.py:33]           val_acc [0000018]: 0.154297
+2025-10-21 20:39:36: INFO demo_pixmo.py:33]          val_loss [0000018]: 4.615332
+2025-10-21 20:39:36: INFO demo_pixmo.py:33]         train_acc [0000018]: 0.956210
+2025-10-21 20:39:36: INFO demo_pixmo.py:33]        train_loss [0000018]: 0.129992
+2025-10-21 20:39:36: INFO model.py:314] Training Epoch 19
+2025-10-21 20:39:44: INFO model.py:318] Validating after Epoch 19
+2025-10-21 20:39:46: INFO demo_pixmo.py:33]           val_acc [0000019]: 0.166016
+2025-10-21 20:39:46: INFO demo_pixmo.py:33]          val_loss [0000019]: 4.693554
+2025-10-21 20:39:46: INFO demo_pixmo.py:33]         train_acc [0000019]: 0.966561
+2025-10-21 20:39:46: INFO demo_pixmo.py:33]        train_loss [0000019]: 0.122177
+lr: 0.0003000, best_val_acc: 0.20703125, best_epoch: 0
+Training complete--------------------
+  0%|                                                    | 0/32 [00:00<?, ?it/s]100%|███████████████████████████████████████████| 32/32 [00:05<00:00,  5.69it/s]
+Predictions saved to runs_pixmo/pixmo_demo/test_pixmo.txt
