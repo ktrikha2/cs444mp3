@@ -122,7 +122,7 @@ pixmo_6:
     num_classes: 20
     dropout: 0.1
     weight_decay: 0.01
-    num_heads: 2
-    num_layers: 2
+    num_heads: 4
+    num_layers: 4
     patch_tokens: 4
     in_features : 512
