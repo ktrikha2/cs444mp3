@@ -70,8 +70,8 @@ class PixmoPointsDataset(Dataset):
         # only consider square images
         self.height = size
         self.width = size
-
-        self.transforms = tv.transforms.Compose(
+        if split == "train":
+            self.transforms = tv.transforms.Compose(
                 [
                     tv.transforms.ToPILImage(),
                     tv.transforms.Resize(size, antialias=True),
@@ -80,6 +80,17 @@ class PixmoPointsDataset(Dataset):
                     tv.transforms.RandomRotation(15),
                     tv.transforms.RandomHorizontalFlip(p=0.5), #adding data augmentation
                     tv.transforms.ToTensor(), 
+                    tv.transforms.Normalize(
+                        mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+                    ),
+                ]
+            )
+        else:
+            self.transforms = tv.transforms.Compose(
+                [
+                    tv.transforms.ToPILImage(),
+                    tv.transforms.Resize(size, antialias=True),
+                    tv.transforms.ToTensor(),
                     tv.transforms.Normalize(
                         mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
                     ),
