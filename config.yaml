@@ -157,4 +157,17 @@ pixmo_8:
     scheduler: 'cosine'
     num_layers: 2
 
-    
+pixmo_8.1:
+    lr: 0.0003
+    epochs: 25          
+    optimizer: 'adamw'
+    net_class: PixMoModel
+    batch_size: 16
+    num_classes: 20
+    dropout: 0.2
+    weight_decay: 0.0001
+    num_heads: 4
+    patch_tokens: 2
+    in_features : 512
+    scheduler: 'cosine'
+    num_layers: 3

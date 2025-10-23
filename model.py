@@ -160,7 +160,7 @@ class PixMoModel(nn.Module):
 
         #learned pos embeddings
         self.pos_embedding = nn.Parameter(torch.zeros(1, self.num_patches, self.feature_dim))
-        nn.init.trunc_normal_(self.pos_embedding, std=0.02)
+        nn.init.trunc_normal_(self.pos_embedding, std=0.02) #initialize wihtouyt 0s
         # use PyTorch's built-in TransformerEncoderLayer
         encoder_layers = TransformerEncoderLayer(d_model=feature_dim, nhead=num_heads, dropout=dropout, batch_first=True)
         self.encoder = TransformerEncoder(encoder_layers, num_layers=num_layers)
