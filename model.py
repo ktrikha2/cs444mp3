@@ -155,7 +155,7 @@ class PixMoModel(nn.Module):
         super().__init__()
         # Image tokenization using convolutional encoder
         self.tokenizer = ConvEncoder(patch_tokens=patch_tokens)
-        self.num_patches = patch_tokens * patch_tokens #* 2 #mult by 2 to account for crop, so img + crop tokens 
+        self.num_patches = patch_tokens * patch_tokens * 2 #mult by 2 to account for crop, so img + crop tokens 
         self.feature_dim = feature_dim
 
         #learned pos embeddings
