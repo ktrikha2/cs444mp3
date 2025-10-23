@@ -246,6 +246,12 @@ class Trainer:
                 self.model.parameters(),
                 lr=lr,
             )
+        elif optimizer == 'adamw':
+            self.optimizer = torch.optim.AdamW(
+                self.model.parameters(),
+                lr=lr,
+                weight_decay=wd
+            )
         else:
             raise ValueError(f"Unsupported optimizer: {optimizer}")
             
