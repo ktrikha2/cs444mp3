@@ -181,7 +181,7 @@ class PixMoModel(nn.Module):
         #combine the two tokens
         tokens = torch.cat((img_tokens, crop_tokens), dim=1) 
         #add pos embedding
-        tokens = tokens + 0.05 * self.pos_embedding[:, :tokens.size(1), :].to(tokens.device) #will add back #added the scale factor 0.05
+        tokens = tokens + 0.1 * self.pos_embedding[:, :tokens.size(1), :].to(tokens.device) #will add back #added the scale factor 0.05
         
         # Step 2: Process through transformer encoder
         # TODO: Apply TransformerEncoder to img_tokens
