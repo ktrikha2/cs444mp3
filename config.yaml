@@ -140,3 +140,21 @@ pixmo_7:
     patch_tokens: 2
     in_features : 512
     scheduler: 'cosine'
+    num_layers: 2
+
+pixmo_8:
+    lr: 0.0001
+    epochs: 20          
+    optimizer: 'adamw'
+    net_class: PixMoModel
+    batch_size: 16
+    num_classes: 20
+    dropout: 0.2
+    weight_decay: 0.0001
+    num_heads: 2
+    patch_tokens: 2
+    in_features : 512
+    scheduler: 'cosine'
+    num_layers: 2
+
+    
