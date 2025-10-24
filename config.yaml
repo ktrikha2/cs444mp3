@@ -9,16 +9,16 @@ vit_linear:
     net_class: ViTLinear
     batch_size: 32
 
-
+#next one 
 vit_deep:
-    lr: 0.001
+    net_class: ViTDeep
+    batch_size: 32
+    lr: 0.01
     wd: 0.01
     epochs: 100
     optimizer: 'sgd'
     scheduler: 'multi_step'
-    momentum: 0.99
-    net_class: ViTLinear
-    batch_size: 32
+    momentum : 0.99
     prompt_len: 10
     milestones: [60, 80]
     gamma: 0.1
@@ -180,7 +180,7 @@ pixmo_8.2:
     batch_size: 16
     num_classes: 20
     dropout: 0.1
-    weight_decay: 0.01
+    weight_decay: 0.0001
     num_heads: 2
     num_layers: 2
     patch_tokens: 2
