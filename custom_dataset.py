@@ -75,10 +75,10 @@ class PixmoPointsDataset(Dataset):
                 [
                     tv.transforms.ToPILImage(),
                     tv.transforms.Resize(size, antialias=True),
-                    tv.transforms.ColorJitter(
-                        brightness=0.3, contrast=0.3, saturation=0.3),
-                    tv.transforms.RandomRotation(15),
-                    tv.transforms.RandomHorizontalFlip(p=0.5), #adding data augmentation
+                    #tv.transforms.ColorJitter(
+                        #brightness=0.3, contrast=0.3, saturation=0.3),
+                    #tv.transforms.RandomRotation(15),
+                   # tv.transforms.RandomHorizontalFlip(p=0.5), #adding data augmentation
                     tv.transforms.ToTensor(), 
                     tv.transforms.Normalize(
                         mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
