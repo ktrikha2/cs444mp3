@@ -174,18 +174,18 @@ pixmo_8.1:
 
 pixmo_8.2:
     lr: 0.0001
-    epochs: 30          
+    epochs: 25          
     optimizer: 'adamw'
     net_class: PixMoModel
     batch_size: 16
     num_classes: 20
-    dropout: 0.1
+    dropout: 0.5
     weight_decay: 0.0001
-    num_heads: 2
-    num_layers: 2
+    num_heads: 4
     patch_tokens: 2
     in_features : 512
     scheduler: 'cosine'
+    num_layers: 3
 
 pixmo_8.3:
     lr: 0.00005       

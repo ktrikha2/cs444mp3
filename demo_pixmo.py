@@ -76,7 +76,7 @@ def get_config(exp_name):
     
     return net_class, model_params, trainer_params, dir_name, batch_size
 
-    return net_class, model_params, trainer_params, dir_name, batch_size
+    #return net_class, model_params, trainer_params, dir_name, batch_size
 
 
 def main(_):
