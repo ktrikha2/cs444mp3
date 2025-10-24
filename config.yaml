@@ -11,14 +11,14 @@ vit_linear:
 
 
 vit_deep:
-    net_class: ViTDeep
-    batch_size: 32
-    lr: 0.01
+    lr: 0.001
     wd: 0.01
     epochs: 100
     optimizer: 'sgd'
     scheduler: 'multi_step'
-    momentum : 0.9
+    momentum: 0.99
+    net_class: ViTLinear
+    batch_size: 32
     prompt_len: 10
     milestones: [60, 80]
     gamma: 0.1
