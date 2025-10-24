@@ -179,7 +179,7 @@ pixmo_8.2:
     net_class: PixMoModel
     batch_size: 16
     num_classes: 20
-    dropout: 0.5
+    dropout: 0.1
     weight_decay: 0.01
     num_heads: 2
     num_layers: 2
