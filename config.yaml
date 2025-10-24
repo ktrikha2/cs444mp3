@@ -158,7 +158,7 @@ pixmo_8:
     num_layers: 2
 
 pixmo_8.1:
-    lr: 0.0003
+    lr: 0.0001
     epochs: 25          
     optimizer: 'adamw'
     net_class: PixMoModel

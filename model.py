@@ -64,8 +64,8 @@ class ConvEncoder(nn.Module):
         #unfreezing more to fine tune 
         #for param in self.conv_encoder.layer2.parameters():
             #param.requires_grad = True
-        #for param in self.conv_encoder.layer3.parameters():
-            #param.requires_grad = True
+        for param in self.conv_encoder.layer3.parameters():
+            param.requires_grad = True
         for param in self.conv_encoder.layer4.parameters():
             param.requires_grad = True
 

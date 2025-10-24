@@ -134,7 +134,7 @@ class PixmoPointsDataset(Dataset):
 
         #cropping around point 
         cropx, cropy = int(point[0]), int(point[1])
-        crop = 32
+        crop = 64
         half_crop = crop //2
         x1 = max(0, cropx - half_crop)
         y1 = max(0, cropy - half_crop)
