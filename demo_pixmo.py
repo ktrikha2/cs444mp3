@@ -53,8 +53,30 @@ def get_config(exp_name):
     net_class = encoder_registry[config['net_class']]
     batch_size = config['batch_size']
     num_classes = config['num_classes']
+    
+    # Extract model-specific parameters with defaults
+    model_params = {
+        'num_classes': num_classes,
+        'feature_dim': config.get('in_features', 512),
+        'num_heads': config.get('num_heads', 2),
+        'num_layers': config.get('num_layers', 2),
+        'patch_tokens': config.get('patch_tokens', 1),
+        'dropout': config.get('dropout', 0.1)
+    }
+    
+    # Extract trainer-specific parameters
+    trainer_params = {
+        'optimizer': optimizer,
+        'lr': lr,
+        'wd': config.get('weight_decay', 0.01),
+        'momentum': config.get('momentum', 0.99),
+        'scheduler': config.get('scheduler', None),
+        'epochs': epochs
+    }
+    
+    return net_class, model_params, trainer_params, dir_name, batch_size
 
-    return net_class, (num_classes,), dir_name, (optimizer, lr, epochs, batch_size)
+    return net_class, model_params, trainer_params, dir_name, batch_size
 
 
 def main(_):
@@ -64,9 +86,19 @@ def main(_):
 
     print(f"Running: {FLAGS.exp_name}")
 
-    net_class, (num_classes,), dir_name, \
-        (optimizer, lr, epochs, batch_size) = \
+    net_class, model_params, trainer_params, dir_name, batch_size = \
         get_config(FLAGS.exp_name)
+
+    # Log the configuration being used
+    print("\n" + "="*60)
+    print("MODEL CONFIGURATION:")
+    for key, value in model_params.items():
+        print(f"  {key}: {value}")
+    print("\nTRAINER CONFIGURATION:")
+    for key, value in trainer_params.items():
+        print(f"  {key}: {value}")
+    print(f"  batch_size: {batch_size}")
+    print("="*60 + "\n")
 
     train_data = get_pixmo_data(FLAGS.data_dir,'train')
     val_data = get_pixmo_data(FLAGS.data_dir,'val')
@@ -82,14 +114,16 @@ def main(_):
 
     writer = SummaryWriterWithPrinting(f'{dir_name}', flush_secs=10)
 
-    model = net_class(num_classes)
+    # Create model with all parameters from config
+    model = net_class(**model_params)
     model.to(device)
 
+    # Create trainer with all parameters from config
     trainer = Trainer(model, train_dataloader, val_dataloader, writer,
-                      optimizer=optimizer, lr=lr, epochs=epochs, device=device)
+                      device=device, **trainer_params)
 
     best_val_acc, best_epoch = trainer.train(model_file_name=tmp_file_name)
-    print(f"lr: {lr:0.7f}, best_val_acc: {best_val_acc}, best_epoch: {best_epoch}")
+    print(f"\nlr: {trainer_params['lr']:0.7f}, best_val_acc: {best_val_acc}, best_epoch: {best_epoch}")
 
     print("Training complete--------------------")
 
